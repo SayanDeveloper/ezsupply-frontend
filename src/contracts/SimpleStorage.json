@@ -38,7 +38,7 @@
   "sourceMap": "67:176:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:176:1;;;;;;;",
   "deployedSourceMap": "67:176:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:176:1;;;;;;;;;;;;;;;;;;;;;;;;114:53;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;114:53:1;;;;;;;;;;;;;;;;;:::i;:::-;;171:70;;;:::i;:::-;;;;;;;;;;;;;;;;;;;114:53;161:1;148:10;:14;;;;114:53;:::o;171:70::-;207:4;226:10;;219:17;;171:70;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.21 <8.10.0;\n\ncontract SimpleStorage {\n  uint storedData;\n\n  function set(uint x) public {\n    storedData = x;\n  }\n\n  function get() public view returns (uint) {\n    return storedData;\n  }\n}\n",
-  "sourcePath": "D:\\Documents\\GitHub\\supply-block\\contracts\\SimpleStorage.sol",
+  "sourcePath": "D:\\AllTypeOfTesting\\truffle-test\\contracts\\SimpleStorage.sol",
   "ast": {
     "absolutePath": "project:/contracts/SimpleStorage.sol",
     "exportedSymbols": {
@@ -597,16 +597,9 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0x007411d7d18a5B54dc4849AC074156FCADfaa9fB",
-      "transactionHash": "0xfe23d134672c9d9e6cca6e05ee07b082825215e6e6381d8043837f74843c822d"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-10T10:07:39.463Z",
+  "updatedAt": "2022-02-11T13:07:29.940Z",
   "devdoc": {
     "methods": {}
   },
