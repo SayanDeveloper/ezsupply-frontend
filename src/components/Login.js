@@ -15,8 +15,7 @@ function Login() {
     const btnGrp = useRef();
 
     // context
-    const {solid, soft} = useContext(GlobalContext);
-    const [loading, setLoading] = solid;
+    const {soft} = useContext(GlobalContext);
     const [softLoading, setSoftLoading] = soft;
 
     // functions
