@@ -1,6 +1,5 @@
 import React, {useState, useContext, useRef} from 'react';
 import { GlobalContext } from '../context/provider';
-import Web3 from 'web3';
 
 function TransferModal({con}) {
     // states

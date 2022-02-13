@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import SimpleStorageContract from "./contracts/SimpleStorage.json";
-import getWeb3 from "./getWeb3";
 // context
 import { GlobalContext } from "./context/provider";
 // components
@@ -14,11 +12,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 
 function App() {
-  // states
-  const [storageValue, setStorageValue] = useState(0);
-  const [accounts, setAccounts] = useState(null);
-  const [web3, setWeb3] = useState(null);
-  const [contract, setContract] = useState(null);
 
   // context fetch
   const {solid, soft, desig, toast, UserData} = useContext(GlobalContext);
@@ -29,17 +22,20 @@ function App() {
   const [toastAppear, setToastAppear] = toast;
 
   // functions
-  useEffect(async () => {
-    if (sessionStorage.getItem("token")) {
-      const req = await fetch("https://ezsupply-backend.herokuapp.com/api/info", {
-        headers: {
-          'x-access-token': sessionStorage.getItem("token"),
-        }
-      })
-      const data = await req.json();
-      setDesignation(data.user.type);
-      setUserData(data.user);
-    }
+  useEffect(() => {
+    async function fetchDesig() {
+      if (sessionStorage.getItem("token")) {
+        const req = await fetch("https://ezsupply-backend.herokuapp.com/api/info", {
+          headers: {
+            'x-access-token': sessionStorage.getItem("token"),
+          }
+        })
+        const data = await req.json();
+        setDesignation(data.user.type);
+        setUserData(data.user);
+      }
+    };
+    fetchDesig();
   }, []);
   
   console.log(userData.email);
@@ -51,9 +47,6 @@ function App() {
       }
     }, [toastAppear]);
 
-    // if (!web3) {
-    //   return <div>Loading Web3, accounts, and contract...</div>;
-    // }
     return (
       <>
         <Router>
