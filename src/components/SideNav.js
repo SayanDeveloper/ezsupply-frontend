@@ -39,7 +39,7 @@ function SideNav() {
         <div className='sidebar-dark-bg' onClick={() => setSideNavOpen(false)}></div>
       : ""}
       <div className='sidenav' ref={sideNavRef}>
-        <NavLink to="/" onClick={() => setSideNavOpen(false)} className='each-el'>
+        <NavLink to="/" onClick={() => setSideNavOpen(false)} className='each-el' end>
           Check Product details
         </NavLink>
         {designation==="manufacturer" ?
