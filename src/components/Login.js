@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState, useEffect, useRef, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {GlobalContext} from '../context/provider';
@@ -40,18 +41,9 @@ function Login() {
     async function loginUser(e) {
         e.preventDefault();
         setSoftLoading(true);
-        const response = await fetch("https://ezsupply-backend.herokuapp.com/api/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: email,
-                password: pass,
-            }),
-        })
+        const response = await axios.post("https://api.ezsupply.cf/api/login", {email: email, password: pass}, {withCredentials: false})
 
-        const data = await response.json();
+        const data = response.data;
         if (data.user) {
             sessionStorage.setItem('token', data.user);
             setInterval(() => {
