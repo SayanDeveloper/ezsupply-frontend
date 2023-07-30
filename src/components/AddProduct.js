@@ -7,12 +7,14 @@ import '../styles/main.css';
 import { GlobalContext } from '../context/provider';
 import Web3 from "web3";
 import supplyChain from '../contracts/supplyChain.json';
+import SoftLoader from './SoftLoader';
 
 function AddProduct() {
   // states
   const [prodName, setProdName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [date, setDate] = useState();
+  const [currentDate, setCurrentDate] = useState();
   const [web3, setWeb3] = useState(null);
   const [contract, setContract] = useState(null);
 
@@ -42,6 +44,14 @@ function AddProduct() {
       }
       setSoftLoading(false);
     }
+    // Get year, month, and day part from the date
+    let year = d.toLocaleString("default", { year: "numeric" });
+    let month = d.toLocaleString("default", { month: "2-digit" });
+    let day = d.toLocaleString("default", { day: "2-digit" });
+
+    // Generate yyyy-mm-dd date string
+    let formattedDate = year + "-" + month + "-" + day;
+    setCurrentDate(formattedDate);
     metamaskConnection();
   }, []);
 
@@ -89,7 +99,7 @@ function AddProduct() {
     return;
   }
   if (!web3) {
-    return <div>Loading Web3, accounts, and contract...</div>;
+    return <SoftLoader />
   }
   return (
     <>
@@ -129,7 +139,7 @@ function AddProduct() {
                   type="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  min="2000-01-01" max="2022-12-31"
+                  min="2000-01-01" max={currentDate}
                   required={true}
               />
               <label htmlFor="">Manufacturing date (mm/dd/yyyy)</label>

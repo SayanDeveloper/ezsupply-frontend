@@ -6,6 +6,7 @@ import SideNav from './SideNav';
 import ProductDetails from './ProductDetails';
 import Web3 from "web3";
 import supplyChain from '../contracts/supplyChain.json';
+import SoftLoader from './SoftLoader';
 
 function Dashboard() {
   // states
@@ -88,7 +89,7 @@ function Dashboard() {
     return;
   }
   if (!web3) {
-    return <div>Loading Web3, accounts, and contract...</div>;
+    return <SoftLoader />
   }
   return (
     <>

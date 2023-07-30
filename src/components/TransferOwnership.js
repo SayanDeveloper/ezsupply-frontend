@@ -7,6 +7,7 @@ import TransferModal from './TransferModal';
 import { GlobalContext } from '../context/provider';
 import Web3 from "web3";
 import supplyChain from '../contracts/supplyChain.json';
+import SoftLoader from './SoftLoader';
 
 function TransferOwnership() {
   // states
@@ -89,7 +90,7 @@ function TransferOwnership() {
     return;
   }
   if (!web3) {
-    return <div>Loading Web3, accounts, and contract...</div>;
+    return <SoftLoader />
   }
   return (
     <>
