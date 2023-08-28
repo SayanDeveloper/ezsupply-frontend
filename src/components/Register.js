@@ -76,7 +76,7 @@ function Register() {
     async function signup() {
       if (solVerified) {
         // mongodb signup
-        const response = await fetch("https://ez-supply.up.railway.app/api/register", {
+        const response = await fetch("https://sayan.rocks/api/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

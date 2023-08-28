@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     async function fetchDesig() {
       if (sessionStorage.getItem("token")) {
-        const req = await fetch("https://ez-supply.up.railway.app/api/info", {
+        const req = await fetch("https://sayan.rocks/api/info", {
           headers: {
             'x-access-token': sessionStorage.getItem("token"),
           }
