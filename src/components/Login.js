@@ -41,7 +41,7 @@ function Login() {
     async function loginUser(e) {
         e.preventDefault();
         setSoftLoading(true);
-        const response = await axios.post("https://sayan.rocks/api/login", {email: email, password: pass}, {withCredentials: false})
+        const response = await axios.post("https://api.ezsupply.sayan.rocks/api/login", {email: email, password: pass}, {withCredentials: false})
 
         const data = response.data;
         if (data.user) {
